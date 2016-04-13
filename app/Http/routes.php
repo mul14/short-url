@@ -35,6 +35,8 @@ $app->post('/', function () use ($app) {
     $url->insert([
         'short_url' => $shortUrl,
         'long_url' => $longUrl,
+        'created_at' => new Carbon\Carbon,
+        'updated_at' => new Carbon\Carbon,
     ]);
 
     return response($shortUrl)->header('Content-type', 'text/plain');
