@@ -1,7 +1,7 @@
 <?php
 
 $app->get('/', function () use ($app) {
-    return response('Bad request', 400)->header('Content-type', 'text/plain');
+    return app('view')->make('index');
 });
 
 $app->get('/{short_url}', function ($short_url) use ($app) {
