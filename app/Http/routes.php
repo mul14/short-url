@@ -25,7 +25,7 @@ $app->post('/', function () use ($app) {
     }
 
     if ($data = $url->where('long_url', $longUrl)->first()) {
-        return response($data->short_url)->header('Content-type', 'text/plain');
+        return response(url($data->short_url))->header('Content-type', 'text/plain');
     }
 
     do {
@@ -39,5 +39,5 @@ $app->post('/', function () use ($app) {
         'updated_at' => new Carbon\Carbon,
     ]);
 
-    return response($shortUrl)->header('Content-type', 'text/plain');
+    return response(url($shortUrl))->header('Content-type', 'text/plain');
 });
